@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explan - 從收入開始的財務導航家</title>
+  <meta name="description" content="Explan - 創新的理財規劃應用。採用獨創的「收入分配工作流」，將複雜的財務規劃轉化為簡單的數位操作。">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .app-hero {
+      background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .app-hero h1 {
+      color: var(--dark-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .app-tagline {
+      font-size: 1.3rem;
+      color: var(--primary-blue);
+      margin-bottom: 2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-card {
+      background: var(--light-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--sky-blue);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-section {
+      background: linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 168, 255, 0.2);
+      margin: 3rem 0;
+    }
+
+    .highlight-section h3 {
+      margin-bottom: 1rem;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlight-list li {
+      padding: 0.75rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .highlight-list li:before {
+      content: "→";
+      color: var(--sky-blue);
+      font-weight: bold;
+      min-width: 20px;
+    }
+
+    .comparison {
+      margin: 3rem 0;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background-color: var(--light-bg);
+    }
+
+    .comparison-table tr:hover {
+      background-color: rgba(0, 168, 255, 0.05);
+    }
+
+    .check {
+      color: var(--sky-blue);
+      font-weight: bold;
+    }
+
+    .cross {
+      color: #cc0000;
+    }
+
+    .download-section {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+
+    .download-section h2 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .download-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      background: var(--white);
+      color: var(--primary-blue);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: gap 0.3s ease;
+    }
+
+    .back-link:hover {
+      gap: 1rem;
+    }
+
+    .app-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .app-hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+      }
+
+      .download-btn {
+        width: 100%;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>✦</span> XiaoRuo
+      </div>
+      <button class="menu-toggle">☰</button>
+      <nav>
+        <ul>
+          <li><a href="../index.html">首頁</a></li>
+          <li><a href="../index.html#about">關於我</a></li>
+          <li><a href="../index.html#projects">專案</a></li>
+          <li><a href="explan.html">Explan</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- Back Link -->
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+
+    <!-- App Hero Section -->
+    <section class="app-hero">
+      <h1>💰 Explan</h1>
+      <p class="app-tagline">從收入開始的財務導航家</p>
+      <p>Explan 不是傳統的記帳應用。它以獨創的「收入分配工作流」為核心，引導你在收入的瞬間就完成財務規劃。簡單、直觀、有效。</p>
+    </section>
+
+    <!-- Core Features -->
+    <section>
+      <h2>核心特點</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>智能分配計畫</h3>
+          <p>一鍵應用預設的分配範本，無論是月薪、獎金還是其他收入，都能快速規劃資金去向。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3>帳戶管理</h3>
+          <p>實體化的帳戶概念，資金流動一目了然。每一分錢都有明確的去處。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>預算追蹤</h3>
+          <p>實時監控各項目標預算的達成進度。清晰視覺化幫助你掌握財務狀況。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>表達流程化</h3>
+          <p>四步引導流程，從收入、分配到預算執行一氣呵成。理財變得簡單有儀式感。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>無離線限制</h3>
+          <p>基於 Room 資料庫，離線也能正常使用。穩定性與流暢度都有保障。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>現代設計</h3>
+          <p>採用 Material 3 設計語言，界面整潔現代，操作直觀易上手。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Explan -->
+    <section class="highlight-section">
+      <h3>為什麼選擇 Explan？</h3>
+      <ul class="highlight-list">
+        <li><strong>不再只是盲目記帳：</strong> 大多數應用只告訴你錢花哪了，Explan 告訴你錢該去哪。透過獨創的「收入分配工作流」，在錢入帳的瞬間就為你打理好一切。</li>
+        <li><strong>儀式感的理財流程：</strong> 內建四步引導法，從收入、分配到預算執行一氣呵成，將複雜的財務規劃轉化為簡單的數位操作。</li>
+        <li><strong>真實的資產視角：</strong> 透過「帳戶間的轉移」模擬真實財務流動，讓「總資產」與「各項目標預算」清晰透明。</li>
+        <li><strong>靈活的分配計畫：</strong> 無論是存旅遊基金還是日常開銷，自定義分配計畫讓你一眼看出財務目標的達成進度。</li>
+      </ul>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison">
+      <h2>Explan vs 傳統記帳應用</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>功能特點</th>
+            <th>傳統記帳 App</th>
+            <th>Explan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>核心理念</strong></td>
+            <td>事後記錄支出</td>
+            <td>事前規劃分配</td>
+          </tr>
+          <tr>
+            <td><strong>帳戶管理</strong></td>
+            <td>餘額檢視</td>
+            <td>資金流向轉移</td>
+          </tr>
+          <tr>
+            <td><strong>預算功能</strong></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span> 完整預算追蹤</td>
+          </tr>
+          <tr>
+            <td><strong>分配計畫</strong></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span> 自定義範本</td>
+          </tr>
+          <tr>
+            <td><strong>工作流引導</strong></td>
+            <td>手動操作</td>
+            <td><span class="check">✓</span> 智能四步流程</td>
+          </tr>
+          <tr>
+            <td><strong>離線使用</strong></td>
+            <td>因應用而異</td>
+            <td><span class="check">✓</span> 完全支持</td>
+          </tr>
+          <tr>
+            <td><strong>用戶體驗</strong></td>
+            <td>基础功能</td>
+            <td><span class="check">✓</span> 現代 Material 3 設計</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Technical Highlights -->
+    <section class="highlight-section">
+      <h3>技術亮點</h3>
+      <ul class="highlight-list">
+        <li><strong>Room 資料庫：</strong> 穩定可靠的本地資料儲存，支持完整的離線功能。</li>
+        <li><strong>ViewModel 架構：</strong> 遵循 MVVM 設計模式，確保應用流暢度與數據一致性。</li>
+        <li><strong>Material 3 UI：</strong> 採用最新的 Material Design 3 規範，提供現代化的使用者界面。</li>
+        <li><strong>效能優化：</strong> 輕量級設計確保應用快速響應，即使在低端設備上也流暢運行。</li>
+      </ul>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+      <h2>現在就開始使用 Explan</h2>
+      <p>轉變你的理財方式，從收入分配開始。</p>
+      <div class="download-buttons">
+        <button class="download-btn" onclick="alert('Google Play 下載鏈接敬請期待...')">
+          🔗 Google Play Store
+        </button>
+        <button class="download-btn" onclick="alert('App Store 下載鏈接敬請期待...')">
+          🔗 Apple App Store
+        </button>
+      </div>
+      <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">*下載鏈接即將上線</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="margin: 3rem 0;">
+      <h2>常見問題</h2>
+      <div class="highlight-section" style="margin-top: 1.5rem; border-left: 4px solid var(--sky-blue);">
+        <h3 style="color: var(--primary-blue);">Explan 免費嗎？</h3>
+        <p>Explan 的基础功能完全免費，包括所有核心理財規劃功能。未來可能推出高級版本以支持持續開發。</p>
+      </div>
+
+      <div class="highlight-section" style="margin-top: 1.5rem; border-left: 4px solid var(--sky-blue);">
+        <h3 style="color: var(--primary-blue);">我的數據是否安全？</h3>
+        <p>所有數據都存儲在你的設備本地，我們不會收集或上傳你的個人財務信息。隱私與安全是首要優先權。</p>
+      </div>
+
+      <div class="highlight-section" style="margin-top: 1.5rem; border-left: 4px solid var(--sky-blue);">
+        <h3 style="color: var(--primary-blue);">支持哪些平台？</h3>
+        <p>Explan 目前開發針對 Android 平台。iOS 版本也在規劃中，敬請關注。</p>
+      </div>
+
+      <div class="highlight-section" style="margin-top: 1.5rem; border-left: 4px solid var(--sky-blue);">
+        <h3 style="color: var(--primary-blue);">如何聯繫開發者？</h3>
+        <p>如有問題或建議，請透過應用內的反饋功能與我聯絡。你的意見對持續改進非常重要。</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p><strong>Explan</strong> - 從收入開始的財務導航家</p>
+      <p>由 <strong>XiaoRuo</strong> 精心打造</p>
+      <p>© 2026 XiaoRuo. 版權所有。</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+        <a href="privacy.html" style="color: rgba(255, 255, 255, 0.8);">隱私政策</a> • 
+        <a href="terms.html" style="color: rgba(255, 255, 255, 0.8);">服務條款</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
